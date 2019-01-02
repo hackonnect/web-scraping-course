@@ -49,7 +49,7 @@ paragraphs = soup.find_all('p')
 
 # Let's see the class of the second paragraph (remember that python is 0 indexed)
 
-print(paragraphs[1]['class']) # ['important']
+print(paragraphs[1]['class']) # ['important red']
 
 # Nice! This gives us what we want. Because BeautifulSoup gives us the attribute values in a list,
 # we can add [0] to the end of that chain in order to get what we need.
