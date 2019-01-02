@@ -1,4 +1,3 @@
-# In order to request the HTML file of a webpage, we need to use the reqeusts library
 import requests
 from bs4 import BeautifulSoup
 
@@ -71,3 +70,5 @@ for child in children:
 for next_sibling in parent.div.next_siblings:
     print('I\'m another sibling!')
 
+# Have a few minutes to experiment with everything we have so far.
+# We'll showcasing real life applications of web scraping with a more practical example very soon.
