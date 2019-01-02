@@ -1,7 +1,7 @@
 # In order to request the HTML file of a webpage, we need to use the reqeusts library
 import requests
 
-website = requests.get('https://hackonnect.github.io/scrape_me')
+website = requests.get('https://hackonnect.github.io/scrape1')
 
 print(website) # <Response [200]>
 print(website.status_code) # 200
@@ -64,9 +64,14 @@ print(paragraphs[2]['class']) # ['important', 'red']
 
 print(paragraphs[3].attrs) # {'class': 'important', 'id': 'unique'}
 
-# In order to find a paragraph by its id, you can use .find(id='')
+# In order to find a paragraph by its id, you can use .find(id=''). This gives you the first element with this id.
+# You can also use .find_all(id='') in order to find all the elements with a particular attribute.
 
 print(soup.find(id='unique')) # <p class="important" id="unique">unique and important</p>
+print(soup.find_all(id='unique')[0]) # <p class="important" id="unique">unique and important</p>
+
+# Usually, you want to use find for finding things with specific ids since ids in HTML is almost always unique.
+# For everything else, .find_all() is a lot more suitable as you can find every desired element.
 
 # Now try this yourselves: What is the class of the last paragraph of this page!
 # Reminder: you can easily get the last item of a python list by using [-1]
