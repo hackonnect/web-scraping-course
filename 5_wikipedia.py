@@ -10,5 +10,5 @@ import requests, bs4
 soup = bs4.BeautifulSoup(requests.get('https://en.wikipedia.org/wiki/List_of_chemical_elements').content, 'html.parser')
 table = soup.find('table', 'wikitable')
 atomic_weight = [0] * 118
-for i in range(3):
+for i in range(118):
     atomic_weight[i] = table.tbody.select_one('tr:nth-of-type(' + str(i + 3) + ')').select_one('td:nth-of-type(7)').span.string

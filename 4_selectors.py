@@ -30,6 +30,7 @@ print(soup.select('.example'))
 
 print(soup.select('p:nth-of-type(3)'))
 
-# You can also only select the first one using select_one()
+# You can also only select the first one using select_one().
+# Because select gives you a list, you can use select_one() to just get a single one.
 
 print(soup.select_one('p:nth-of-type(3)'))
