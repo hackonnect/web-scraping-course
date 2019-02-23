@@ -73,10 +73,6 @@ print(soup.find_all(id='unique')[0]) # <p class="important" id="unique">unique a
 # Usually, you want to use find for finding things with specific ids since ids in HTML is almost always unique.
 # For everything else, .find_all() is a lot more suitable as you can find every desired element.
 
-# We can find all the divs with a particular class:
-
-print(soup.find_all('div', 'sibling')) # Find all divs with a class of sibling
-
 # Remember how we found specific ids? We can do the same for elements with custom attributes:
 
 print(soup.find_all(name='h1')) # [<h1>h1</h1>]

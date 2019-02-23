@@ -6,6 +6,10 @@ soup = BeautifulSoup(website.content, 'html.parser')
 
 # Let the students explore the nested data structure using inspect element first
 
+# We can find all the divs with a particular class:
+
+print(soup.find_all('div', 'sibling')) # Find all divs with a class of sibling
+
 # Quick exercise: assign the div with the class 'parent' to a variable called parent
 # Solution:
 
