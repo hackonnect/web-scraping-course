@@ -8,7 +8,17 @@
 
 import requests, bs4
 soup = bs4.BeautifulSoup(requests.get('https://en.wikipedia.org/wiki/List_of_chemical_elements').content, 'html.parser')
-table = soup.find('table', 'wikitable')
+table_rows = soup.find('table', 'wikitable').find_all('tr')[3:-1]
 atomic_weight = [0] * 118
-for i in range(118):
-    atomic_weight[i] = table.tbody.select_one('tr:nth-of-type(' + str(i + 3) + ')').select_one('td:nth-of-type(7)').span.string
+for index, row in enumerate(table_rows):
+    td = row.select_one('td:nth-of-type(7)')
+    if td.span:
+        while td.span.sup:
+            td.span.sup.decompose()
+        atomic_weight[index] = td.span.string
+    else:
+        while td.sup:
+            td.sup.decompose()
+        atomic_weight[index] = td.string
+
+print(atomic_weight)
