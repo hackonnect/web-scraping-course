@@ -34,3 +34,20 @@ print(soup.select('p:nth-of-type(3)'))
 # Because select gives you a list, you can use select_one() to just get a single one.
 
 print(soup.select_one('p:nth-of-type(3)'))
+
+# Sometimes, different HTML elements will affect our code.
+# Look at the last paragraph with a class of 'broken'. 
+# This paragraph, is quite literally, broken.
+# If you try to extract the text from the paragraph by appending .string, you'll find that it doesn't work.
+# We need to remove everything else that is inside the p.
+# If you inspect the element, you'll find that there is also a span inside. We should try to remove the span.
+
+soup.select_one('.broken').span.decompose()
+
+# Decomposing the element will remove it. If we want to keep the value in another variable after decomposing.
+# We can do the following:
+
+new_variable = soup.select_one('.broken').span.extract()
+
+# The code above will not work now because we've already decomposed it, but if you have not removed it yet,
+# extracting is a very useful tool.

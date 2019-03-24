@@ -20,5 +20,4 @@ for index, row in enumerate(table_rows):
         while td.sup:
             td.sup.decompose()
         atomic_weight[index] = td.string
-
 print(atomic_weight)
